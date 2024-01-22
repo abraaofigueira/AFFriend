@@ -1,16 +1,16 @@
 
 app.LoadScript( "home.js" );
   cfg.MUI
-   cfg.Light
+   cfg.Dark;
    app.LoadPlugin( "Biometric" )
    color = MUI.colors.deepPurple;
    app.InitializeUIKit(color.deepPurple); 
 function OnStart()
 {
   lay = app.CreateLayout( "Linear", "VCenter,FillXY" );
-  lay.SetBackColor( "#ffffff" );
+//  lay.SetBackColor( "#ffffff" );
    layTop = app.CreateLayout( "Card", "Horizontal,FillXY" );
-  layTop.SetBackColor(color.darken4 );
+  layTop.SetBackColor(color.darken2 );
   layTop.SetCornerRadius( 22)
   layTop.SetSize( null,0.5,null )
   lay.AddChild( layTop )
@@ -32,10 +32,10 @@ function OnStart()
 
   textImpress = app.CreateText( "Entre com a sua impressão digital*",0.9,0.1,"Multiline" );
   lay.AddChild( textImpress );
-  textImpress.SetTextColor( "#000000" )
+  textImpress.SetTextColor( "#ffffff" )
   textImpress.SetTextSize( 18,"px" );
   textImpress.SetMargins( 0.01, 0.06, 0.01, 0.01 )
-  btn = MUI.CreateButtonRoundO("[fa-facebook]",0.36,0.2);
+  btn = MUI.CreateButtonRoundO("[fa-facebook-square]",0.36,0.2);
   btn.SetMargins(0.01,0.00,0.01,0.01);
   btn.SetOnTouch( btn_OnTouch )
   btn.SetTextColor("#ffffff");
@@ -48,7 +48,7 @@ function OnStart()
   textTerms = app.CreateText( "Ao clicar em finger( f ) estará concordando com os <a href='https://www.affriend8.wordpress.com/termos'>termos de uso</a> da "+
       "<a href='https://www.affriend8.wordpress.com'>AFFriend Academy</a> e suas <a href='https://www.affriend8.wordpres.com'>políticas comerciais e de uso </a>"+
          "dos seus serviços.",0.8,0.2,"Html,Bold,Multiline,Left" );
-            textTerms.SetTextColor( "#000000" );
+            textTerms.SetTextColor( "#ffffff" );
                textTerms.SetTextSize( 18,"px" );
                lay.AddChild( textTerms );
                //criar chave biometrica
@@ -74,7 +74,7 @@ function btn_OnTouch()
           }
            function OnSuccess()
             {
-              alert = MUI.CreateAlert( "Confirmado!","verify","blue");
+              alert = MUI.CreateAlert( "Confirmado!","verify",color.darken2);
                alert.Show();
              setTimeout(6000);
             adlg.Hide();
